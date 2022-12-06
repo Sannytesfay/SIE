@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private Button informationExchange,formClubButton, tutorButton,messageB;
+    private Button informationExchange,formClubButton, tutorButton,messageB,marketPlaceButton;
 
 
     FirebaseAuth auth;
@@ -35,6 +35,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         messageB = (Button) findViewById(R.id.Comms);
         messageB.setOnClickListener(this);
+
+        marketPlaceButton  = (Button) findViewById(R.id.marketPlace);
+        marketPlaceButton.setOnClickListener(this);
 
 
 
@@ -79,6 +82,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.Comms:
                 startActivity(new Intent(this,M.class));
+                break;
+            case R.id.marketPlace:
+                startActivity(new Intent(this,ProductMainActivity.class));
                 break;
 
         }
