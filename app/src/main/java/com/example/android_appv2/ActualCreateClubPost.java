@@ -19,6 +19,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.sql.Struct;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ActualCreateClubPost extends AppCompatActivity implements View.OnClickListener {
@@ -28,12 +30,17 @@ public class ActualCreateClubPost extends AppCompatActivity implements View.OnCl
     EditText groupNameEditText, descriptionEditText;
     FirebaseAuth auth;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actual_create_club_post);
 
         auth = FirebaseAuth.getInstance();
+
+
+
 
         createButton = (Button) findViewById(R.id.create);
         createButton.setOnClickListener(this);
@@ -93,12 +100,18 @@ public class ActualCreateClubPost extends AppCompatActivity implements View.OnCl
 
         HashMap<String,Object> hashMap = new HashMap<>();
 
+        ArrayList<String> members = new ArrayList<>();
+        members.add(user.getUid());
+
+
         hashMap.put("uId",user.getUid());
         hashMap.put("uEmail",user.getEmail());
         hashMap.put("pId",timeStamp);
         hashMap.put("pClubTitle",clubName);
         hashMap.put("pDescription",description);
         hashMap.put("pTime",timeStamp);
+        hashMap.put("members",members);
+        hashMap.put("Admin",user.getUid());
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("ClubPosts");
         ref.child(timeStamp).setValue(hashMap)

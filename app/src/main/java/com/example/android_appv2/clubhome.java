@@ -1,15 +1,11 @@
 package com.example.android_appv2;
 
-import static com.example.android_appv2.R.id.addPost;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -55,7 +51,7 @@ public class clubhome extends AppCompatActivity implements View.OnClickListener 
 
         recyclerView.setLayoutManager(layoutManager);
 
-        postModelList = new ArrayList<>();
+        postModelList = new ArrayList<PostModel>();
 
         loadPosts();
 

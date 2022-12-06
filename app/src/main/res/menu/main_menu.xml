@@ -8,6 +8,12 @@
         />
 
     <item
+        android:title="Advertisements"
+        android:id="@+id/advertisements"
+        app:showAsAction="never"
+        />
+
+    <item
         android:title="Log Out"
         android:id="@+id/action_logout"
         app:showAsAction="never"
